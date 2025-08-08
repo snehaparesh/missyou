@@ -3,21 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Dearest Boyfriend</title>
+    <title>hackathon</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>My Dearest [Boyfriend's Name]</h1>
-        <p>A little website to show you how much I love you.</p>
+        <h1>Hi, my baby.</h1>
+        <p>Here is a little website to show you how much I love you and how much I miss you.</p>
+
+        <div class="countdown-container">
+            <h3 class="countdown-title">Number of days until I see you...</h3>
+            <div id="countdown">
+                <div class="countdown-item">
+                    <span id="days"></span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours"></span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes"></span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds"></span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
         <section class="love-story">
-            <h2>Our Love Story</h2>
-            <p>Remember when we first met at [Place]? I knew right away that you were special...</p>
-            <!--<img src="images/photo1.jpg" alt="A cute photo of us">-->
+            <h2>Reasons why I love you. (Hover the mouse)</h2>
+            <div class="photo-reasons">
+                <div class="reason-card">
+                    <img src="images/reason1.jpg" alt="A photo representing our love">
+                    <div class="reason-text">
+                        <p>You always make me laugh, even on my worst days. I love your sense of humor!</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <img src="images/reason2.jpeg" alt="Another special photo of us">
+                    <div class="reason-text">
+                        <p>I feel so safe and understood whenever I'm with you. You're my rock.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <img src="images/reason3.jpg" alt="A third photo of a special memory">
+                    <div class="reason-text">
+                        <p>You inspire me to be a better person every single day. Thank you for being you.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <img src="images/reason4.jpg" alt="A fourth photo and a reason I love you">
+                    <div class="reason-text">
+                        <p>I love our quiet moments together, where we don't need to say anything at all.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="favorite-memories">
@@ -39,5 +84,39 @@
     <footer>
         <p>Created with love by [Your Name] &copy; 2025</p>
     </footer>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Aug 12, 2025 00:00:00").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+          // Output the result in elements with respective IDs
+          document.getElementById("days").innerHTML = days;
+          document.getElementById("hours").innerHTML = hours;
+          document.getElementById("minutes").innerHTML = minutes;
+          document.getElementById("seconds").innerHTML = seconds;
+            
+          // If the count down is over, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "I will be seeing you today... My baby...";
+            document.getElementById("countdown-title").style.display = "none";
+          }
+        }, 1000);
+    </script>
 </body>
 </html>
